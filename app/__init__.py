@@ -1,0 +1,1 @@
+# ficheiro vazio — necessário para Python reconhecer a pasta como módulo
