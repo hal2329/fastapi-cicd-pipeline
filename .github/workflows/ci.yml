@@ -23,3 +23,14 @@ jobs:
 
       - name: Run tests
         run: python -m pytest tests/ -v
+
+  sast:
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Semgrep
+        run: semgrep scan --config p/python
