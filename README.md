@@ -1,5 +1,8 @@
 # FastAPI CI/CD Pipeline
 
+[![CI](https://github.com/hal2329/fastapi-cicd-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/hal2329/fastapi-cicd-pipeline/actions/workflows/ci.yml) [![CD](https://github.com/hal2329/fastapi-cicd-pipeline/actions/workflows/cd.yml/badge.svg)](https://github.com/hal2329/fastapi-cicd-pipeline/actions/workflows/cd.yml)
+
+
 Uma API de exemplo em Python com FastAPI usada como base para uma pipeline CI/CD com GitHub Actions. A aplicação, que cria 2 endpoints (`/` e `/health`), roda em um container Docker e é publicada automaticamente no Docker Hub sempre que há um merge na branch `main`.
 
 ## Tecnologias usadas
@@ -35,6 +38,13 @@ pip install -r requirements.txt
 4. Executar uvicorn
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+## Rodar a imagem publicada no Docker Hub
+
+```bash
+docker pull hal2328/fastapi-cicd-pipeline:latest
+docker run -p 8000:8000 hal2328/fastapi-cicd-pipeline:latest
 ```
 
 ## Como rodar os testes
